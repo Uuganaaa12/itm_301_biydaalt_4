@@ -9,18 +9,16 @@ const adminQuestionsRouter = require('./routes/admin/questions-routes');
 
 const UserQuestionsRouter = require('./routes/user/questions-routes');
 
+const NotificationsRouter = require('./routes/notification-routes');
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB is connected'))
   .catch(error => console.log(error));
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://badraafoundation.org',
-  'https://www.badraafoundation.org',
-];
+const PORT = process.env.PORT || 5001;
+const allowedOrigins = ['http://localhost:5173'];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -52,8 +50,7 @@ app.use(compression());
 app.use('/api/admin/questions', adminQuestionsRouter);
 
 app.use('/api/user/questions', UserQuestionsRouter);
-
-
+app.use('/api/notifications', NotificationsRouter);
 
 app.listen(PORT, '0.0.0.0', () =>
   console.log(`Server is now running on port ${PORT}`)
