@@ -20,7 +20,10 @@ mongoose
 
 const app = express();
 const PORT = process.env.PORT || 5001;
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://itm-301-biydaalt-4.onrender.com',
+];
 
 const corsOptions = {
   origin: function (origin, callback) {

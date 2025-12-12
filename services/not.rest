@@ -1,5 +1,5 @@
 
-POST http://localhost:5001/api/notifications/send
+POST https://itm-301-biydaalt-4.onrender.com/api/notifications/send
 Authorization: Bearer KICySuO4v7O90wXo0mF4WA
 Content-Type: application/json
 
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 
 ### 2. Send Notification to role (example: student)
-POST http://localhost:5001/api/notifications/send
+POST https://itm-301-biydaalt-4.onrender.com/api/notifications/send
 Content-Type: application/json
 Authorization: Bearer _qltbxg3VJssRZA69Of_eQ
 
@@ -25,7 +25,7 @@ Authorization: Bearer _qltbxg3VJssRZA69Of_eQ
 }
 
 ### 3. Send Notification to course students
-POST http://localhost:5001/api/notifications/send
+POST https://itm-301-biydaalt-4.onrender.com/api/notifications/send
 Content-Type: application/json
 Authorization: Bearer NE2H5yJk_EnZYpQml5mtMQ
 
@@ -38,7 +38,7 @@ Authorization: Bearer NE2H5yJk_EnZYpQml5mtMQ
 }
 
 ### 4. Send Notification to single user
-POST http://localhost:5001/api/notifications/send
+POST https://itm-301-biydaalt-4.onrender.com/api/notifications/send
 Content-Type: application/json
 Authorization: Bearer qdSBj5edoPkuuPnqsOulEQ
 
@@ -51,7 +51,7 @@ Authorization: Bearer qdSBj5edoPkuuPnqsOulEQ
 }
 
 ### 5. Get my notifications
-GET http://localhost:5001/api/notifications/my
+GET https://itm-301-biydaalt-4.onrender.com/api/notifications/my
 Authorization: Bearer _qltbxg3VJssRZA69Of_eQ
 
 ###
@@ -62,11 +62,11 @@ Authorization: Bearer luwIpM9Fg86ZH7o8nANBIw
 
 
 ### 5. Get my notification
-GET http://localhost:5001/api/notifications/6936673a59789899458c28b2
+GET https://itm-301-biydaalt-4.onrender.com/api/notifications/6936673a59789899458c28b2
 Authorization: Bearer K0AvHqNDbVLD9W9oXBm-mw
 
 ### 6. Mark notification as read
-PUT http://localhost:5001/api/notifications/read/67a1b82f879a93f7cc21b93b
+PUT https://itm-301-biydaalt-4.onrender.com/api/notifications/read/67a1b82f879a93f7cc21b93b
 Authorization: Bearer {{token}}
 
 
