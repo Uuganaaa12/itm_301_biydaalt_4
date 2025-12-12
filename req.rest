@@ -1,6 +1,6 @@
 
 
-POST http://localhost:5001/api/user/questions/add
+POST https://itm-301-biydaalt-4.onrender.com/api/user/questions/add
 Content-Type: application/json
 Accept: application/json
 
@@ -13,13 +13,18 @@ Accept: application/json
 }
 
 ###
-GET http://localhost:5001/api/admin/questions/get
+GET https://itm-301-biydaalt-4.onrender.com/api/admin/questions/get
 Content-Type: application/json
 Accept: application/json
- 
+
 
 ###
-PUT http://localhost:5001/api/admin/questions/edit/692d185eaedacccf3f35f2a2
+GET https://itm-301-biydaalt-4.onrender.com/api/messages/chats?userId=568
+Content-Type: application/json
+Accept: application/js
+
+###
+PUT https://itm-301-biydaalt-4.onrender.com/api/admin/questions/edit/692d185eaedacccf3f35f2a2
 Content-Type: application/json
 Accept: application/json
 
@@ -31,7 +36,7 @@ Accept: application/json
 
 
 ###
-DELETE http://localhost:5001/api/admin/questions/delete/692d1a706c689741027fe0ab
+DELETE https://itm-301-biydaalt-4.onrender.com/api/admin/questions/delete/692d1a706c689741027fe0ab
 Content-Type: application/json
 Accept: application/json
 

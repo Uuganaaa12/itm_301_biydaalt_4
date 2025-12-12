@@ -10,8 +10,18 @@ cloudinary.config({
 
 const storage = new multer.memoryStorage();
 
-async function imageUploadUtil(file) {
-  const result = await cloudinary.uploader.upload(file, {
+async function imageUploadUtil(file, mimetype) {
+  let uploadSource = file;
+
+  if (Buffer.isBuffer(file)) {
+    if (!mimetype) {
+      throw new Error('Missing mimetype for buffer upload');
+    }
+    const base64 = file.toString('base64');
+    uploadSource = `data:${mimetype};base64,${base64}`;
+  }
+
+  const result = await cloudinary.uploader.upload(uploadSource, {
     resource_type: 'auto',
   });
 
