@@ -16,7 +16,12 @@ Accept: application/json
 GET http://localhost:5001/api/admin/questions/get
 Content-Type: application/json
 Accept: application/json
- 
+
+
+###
+GET http://localhost:5001/api/messages/chats?userId=568
+Content-Type: application/json
+Accept: application/js
 
 ###
 PUT http://localhost:5001/api/admin/questions/edit/692d185eaedacccf3f35f2a2
