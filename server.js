@@ -1,13 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const compression = require('compression');
-require('dotenv').config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const compression = require("compression");
+require("dotenv").config();
 
-const adminQuestionsRouter = require('./routes/admin/questions-routes');
+const adminQuestionsRouter = require("./routes/admin/questions-routes");
 
-const UserQuestionsRouter = require('./routes/user/questions-routes');
+const UserQuestionsRouter = require("./routes/user/questions-routes");
+
+const { default: schoolRouter } = require("./routes/school/get-school");
+const userRouter = require("./routes/school/add-user");
 
 const NotificationsRouter = require('./routes/notification-routes');
 const MessageRouter = require('./routes/message-routes');
@@ -15,8 +18,8 @@ const LostFoundRouter = require('./routes/lostFound-routes');
 const TodoRouter = require('./routes/todo-routes');
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB is connected'))
-  .catch(error => console.log(error));
+  .then(() => console.log("MongoDB is connected"))
+  .catch((error) => console.log(error));
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -31,7 +34,7 @@ const corsOptions = {
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error("Not allowed by CORS"));
     }
   },
   methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
@@ -47,15 +50,19 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(compression());
 
-app.use('/api/admin/questions', adminQuestionsRouter);
+app.use("/api/admin/questions", adminQuestionsRouter);
 
+app.use("/api", schoolRouter);
+app.use("/api", userRouter);
+
+app.listen(PORT, "0.0.0.0", () =>
 app.use('/api/user/questions', UserQuestionsRouter);
 app.use('/api/notifications', NotificationsRouter);
 app.use('/api/messages', MessageRouter);
