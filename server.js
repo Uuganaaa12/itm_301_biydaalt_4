@@ -62,7 +62,6 @@ app.use("/api/admin/questions", adminQuestionsRouter);
 app.use("/api", schoolRouter);
 app.use("/api", userRouter);
 
-app.listen(PORT, "0.0.0.0", () =>
 app.use('/api/user/questions', UserQuestionsRouter);
 app.use('/api/notifications', NotificationsRouter);
 app.use('/api/messages', MessageRouter);
